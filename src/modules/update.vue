@@ -60,10 +60,14 @@ export default {
   methods: {
     save: function(e) {
       e.preventDefault();
+      sessionStorage.setItem("Firstname", this.username),
+      sessionStorage.setItem("Email", this.email),
+      sessionStorage.setItem("Password", this.password),
       AUTH.save(this.username,this.email, this.password)
-    },
+    // }
 
-  }
+  },
+}
 };
 
 // export default {
