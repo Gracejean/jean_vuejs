@@ -6,7 +6,6 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav>
             <b-nav-item @click="redirect('/Login')" class="text text-light" id="login">Login</b-nav-item>

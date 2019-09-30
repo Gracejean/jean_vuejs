@@ -72,16 +72,8 @@
 
 </template>
 <style scoped lang="scss">
-// @import"assets/colors.scss";
-
-// #username{
-//   color: $primary !important;
-// }
-// #pass{
-//   color: $primary !important;
 </style>
 <script>
-// import ROUTER from "router";
 import AUTH from "services/auth";
 export default {
   data() {
@@ -99,7 +91,7 @@ export default {
   methods: {
     submit: function(e) {
       e.preventDefault();
-      sessionStorage.setItem("Firstname", this.content.firstname),
+        sessionStorage.setItem("Firstname", this.content.firstname),
         sessionStorage.setItem("Lastname", this.content.lastname),
         sessionStorage.setItem("Email", this.content.email),
         sessionStorage.setItem("Password", this.content.password),

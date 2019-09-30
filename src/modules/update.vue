@@ -64,29 +64,12 @@ export default {
       sessionStorage.setItem("Email", this.email),
       sessionStorage.setItem("Password", this.password),
       AUTH.save(this.username,this.email, this.password)
-    // }
+    
 
   },
 }
 };
 
-// export default {
-//   data() {
-//     AUTH
-//     return {
-//       username: "",
-//       email: "",
-//       password: ""
-//     };
-//   },
-//   methods: {
-//     update(): function(e) {
-//       e.preventDefault();
-//       AUTH.update(this.username,this.email, this.password)
-//     },
-
-  // };
-// };
 
 </script>
 

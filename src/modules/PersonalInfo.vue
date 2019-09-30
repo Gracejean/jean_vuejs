@@ -52,9 +52,7 @@ export default {
   },
   methods:{
     update: function(){
-      // e.preventDefault();
       AUTH.update(this.firstname,this.email, this.password)
-      // AUTH.update()
 
     }
   }
