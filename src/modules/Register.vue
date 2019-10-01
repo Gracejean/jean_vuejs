@@ -3,6 +3,9 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="container">
+          <center>
+            <b-card-img id="image1" :src="require('assets/img.png')" class="rounded-0"></b-card-img>
+            </center>
           <div class="card">
             <div class="card-header">REGISTER</div>
             <div class="card-body">
@@ -143,5 +146,21 @@ input {
   margin-top: 5px;
   padding: 12px 30px;
 }
+
+.container {
+  background-color: black;
+  padding: 10px;
+  margin-top:30px;
+  
+}
+
+#image1 {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top:5px;
+  left: 170px;
+}
+
 </style>
 
