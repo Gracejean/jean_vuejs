@@ -1,4 +1,5 @@
 <template>
+  <center>
   <div id="container">
     <div class="jumbotron">
       <h1>Personal Information</h1>
@@ -25,16 +26,17 @@
       </b-card>
     </div>
   </div>
+  </center>
 </template>
 
 <style>
 .jumbotron{
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
+    /* text-align: center; */
 }
 #card {
   margin-top: 50px;
-  margin-left: 380px;
+  /* margin-left: 380px; */
 }
 </style>
 <script>

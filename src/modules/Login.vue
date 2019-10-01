@@ -1,5 +1,4 @@
 <template>
-
   <div class="row loginPage">
       <div class="col-md-4"></div>
       <div class="col-md-4">
@@ -12,13 +11,8 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="email" class="bmd-label-floating">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="email"
-                  v-model="email"
-                  placeholder="Enter email..."
-                />
+                  <input type="text" class="form-control" id="email" v-model="email" placeholder="Enter email..."/>
+                
               </div>
               <div class="form-group">
                 <label for="pwd" class="bmd-label-floating">Password</label>
@@ -53,19 +47,41 @@
 </style>
 <script>
 import AUTH from 'services/auth'
+import jquery from 'jquery'
 export default {
   data() {
     AUTH
     return {
-      email: "",
-      password: ""
+      email: null,
+      password: null,
+      config: CONFIG
     };
   },
   methods: {
-    submit: function(e) {
-      e.preventDefault();
-      AUTH.login(this.email, this.password)
+    redirect(params){
+      aler('hi')
+      ROUTER.push(params)
     },
+    
+    test(){
+      let link = 'http://localhost:3000'
+      jquery.ajax({
+        url:link,
+        method: "POST",
+        headers:{
+          'Access.Control.Allow.Origin':'*'
+        }
+      })
+    },
+    // login(){
+    //   console.log('hi')
+    //   jquery.get('http://localhost:300').then(response =>{
+    //     console.log(response)
+    //   })
+    // }
+
+  },
+  computed:{
 
   }
 };
@@ -100,9 +116,9 @@ export default {
   
 }
 .container {
-  background-color: black;
+  background-color: white;
   padding: 10px;
-  margin-top:30px;
+  margin-top:50px;
   
 }
 
@@ -121,11 +137,13 @@ input {
   padding: 12px 30px;
 }
 #image1 {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   position: absolute;
-  top:5px;
-  left: 170px;
+  top:13px;
+  left: 38%;
+  z-index: 1;
 }
 
 </style>
+

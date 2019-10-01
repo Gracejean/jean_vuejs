@@ -148,18 +148,19 @@ input {
 }
 
 .container {
-  background-color: black;
+  background-color:white;
   padding: 10px;
-  margin-top:30px;
+  margin-top:50px;
   
 }
 
 #image1 {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   position: absolute;
-  top:5px;
-  left: 170px;
+  top:10px;
+  left: 190px;
+  z-index: 1;
 }
 
 </style>

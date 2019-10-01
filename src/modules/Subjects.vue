@@ -1,4 +1,5 @@
 <template>
+<center>
   <div>
     <div class="jumbotron">
       <h1>Subjects</h1>
@@ -23,6 +24,7 @@
            >Add Subject</b-button>
         </b-form-group>
       </b-card>
+    </center>
       <b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
         <table class="table">
           <thead>
@@ -46,18 +48,23 @@
           </tbody>
         </table>
       </b-card>
-    </center>
+    <!-- </center> -->
   </div>
+</center>
 </template>
 
 
 <style>
 #card {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .jumbotron {
   padding: 20px;
-  text-align: center;
+  /* text-align: center; */
+}
+
+tbody {
+  margin-top:20px;
 }
 </style>
 

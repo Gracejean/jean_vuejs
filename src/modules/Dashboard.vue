@@ -1,4 +1,5 @@
 <template>
+<center>
   <div>
     <div class="jumbotron">
       <h1>Dashboard</h1>
@@ -17,16 +18,17 @@
       </b-card>
     </div>
   </div>
+</center>
 </template>
 
 <style scoped>
 #card {
   margin-top: 30px;
-  margin-left: 400px;
+  /* margin-left: 400px; */
 }
 .jumbotron{
-    padding:20px;
-    text-align: center;
+    padding:15px;
+    /* text-align: center; */
 }
 #image {
   width: 250px;
