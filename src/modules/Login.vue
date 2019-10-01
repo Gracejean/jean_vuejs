@@ -25,7 +25,7 @@
                 />
               </div>
               <center>
-                <button type="button" class="btn btn-outline-success login-btn" id="btnLogin" @click='submit'>Login</button>
+                <button type="button" class="btn btn-outline-success login-btn" id="btnLogin" @click='test'>Login</button>
                 
               </center>
             </div>
@@ -52,39 +52,37 @@ export default {
   data() {
     AUTH
     return {
-      email: null,
-      password: null,
-      config: CONFIG
+      email: "",
+      password: ""
     };
   },
   methods: {
-    redirect(params){
-      aler('hi')
-      ROUTER.push(params)
-    },
-    
-    test(){
-      let link = 'http://localhost:3000'
-      jquery.ajax({
-        url:link,
-        method: "POST",
-        headers:{
-          'Access.Control.Allow.Origin':'*'
+        submit: function (e) {
+            e.preventDefault();
+            AUTH.login(this.email, this.password)
+        },
+
+        test(){
+            alert('hi')
+           let link = 'http://localhost:3000/user'
+           jquery.ajax({
+               url:link,
+               method: 'POST',
+               headers: {
+                   'Access-control-Allow-Origin': '*'
+               }
+          //  }).then(reponse =>{   alert(message?: any): void
+           
+           })
+           
         }
-      })
     },
-    // login(){
-    //   console.log('hi')
-    //   jquery.get('http://localhost:300').then(response =>{
-    //     console.log(response)
-    //   })
-    // }
+    computed:{
 
-  },
-  computed:{
+    }
 
-  }
-};
+}
+// };
 </script>
 
 <style scoped>
