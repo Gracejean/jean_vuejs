@@ -40,6 +40,7 @@
 }
 </style>
 <script>
+import ROUTER from "router"
 
 import AUTH from 'services/auth'
 
@@ -55,6 +56,12 @@ export default {
   methods:{
     update: function(){
       AUTH.update(this.firstname,this.email, this.password)
+      let user = AUTH.login(this.email, this.password);
+
+      AUTH.setUser(user);
+              if(user != null){
+                ROUTER.push('/update');
+              }
 
     }
   }

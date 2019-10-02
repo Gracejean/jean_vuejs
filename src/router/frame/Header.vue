@@ -5,7 +5,7 @@
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav  v-if = "auth.user != null">
+      <b-collapse id="nav-collapse" is-nav  v-if = "auth.user == null">
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav>
             <b-nav-item @click="redirect('/Login')" class="text text-light" id="login">Login</b-nav-item>
