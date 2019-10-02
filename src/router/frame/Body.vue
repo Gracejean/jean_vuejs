@@ -1,7 +1,10 @@
 <template>
+
     <div>
-        <transition>
+       
+    <transition>
         <router-view></router-view>
-        </transition>
+    </transition>
     </div>
 </template>
+

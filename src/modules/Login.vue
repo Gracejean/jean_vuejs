@@ -12,7 +12,6 @@
               <div class="form-group">
                 <label for="email" class="bmd-label-floating">Email</label>
                   <input type="text" class="form-control" id="email" v-model="email" placeholder="Enter email..."/>
-                
               </div>
               <div class="form-group">
                 <label for="pwd" class="bmd-label-floating">Password</label>
@@ -25,7 +24,7 @@
                 />
               </div>
               <center>
-                <button type="button" class="btn btn-outline-success login-btn" id="btnLogin" @click='test'>Login</button>
+                <button type="button" class="btn btn-outline-success login-btn" id="btnLogin" @click='submit'>Login</button>
                 
               </center>
             </div>
@@ -46,8 +45,10 @@
 }
 </style>
 <script>
+import ROUTER from "router"
+
 import AUTH from 'services/auth'
-import jquery from 'jquery'
+// import jquery from 'jquery'
 export default {
   data() {
     AUTH
@@ -59,30 +60,43 @@ export default {
   methods: {
         submit: function (e) {
             e.preventDefault();
-            AUTH.login(this.email, this.password)
-        },
-
-        test(){
-            alert('hi')
-           let link = 'http://localhost:3000/user'
-           jquery.ajax({
-               url:link,
-               method: 'POST',
-               headers: {
-                   'Access-control-Allow-Origin': '*'
-               }
-          //  }).then(reponse =>{   alert(message?: any): void
-           
-           })
-           
+            let user = AUTH.login(this.email, this.password);
+            if(this.email == ""|| this.password == ""){
+              alert("Please provide inputs!");
+            }else{
+              alert("Please register first!")
+              ROUTER.push('/Register')
+              AUTH.setUser(user);
+              if(user != null){
+                ROUTER.push('/Dashboard');
+              }
+            }
+        // },
         }
-    },
-    computed:{
 
-    }
+    //     test(){
+    //         alert('hi')
+    //        let link = 'http://localhost:3000/user'
+    //        jquery.ajax({
+    //            url:link,
+    //            method: 'POST',
+    //            headers: {
+    //                'Access-control-Allow-Origin': '*'
+    //            }
+    //           }).then(response=>{
+    //         alert(response.username)
+    //       })
+           
+    //       //  })
+           
+    //     }
+    // },
+    // computed:{
+
+    // }
 
 }
-// };
+};
 </script>
 
 <style scoped>
