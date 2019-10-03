@@ -22,6 +22,9 @@
           <br>
           <b-button variant="primary" @click="addItem"
            >Add Subject</b-button>
+          <b-button id="del" @click="deleteItem"
+           >Delete Subject</b-button>
+ 
         </b-form-group>
       </b-card>
     </center>
@@ -54,13 +57,19 @@
 </template>
 
 
-<style>
+<style scoped lang="scss">
+@import "assets/colors.scss";
+
 #card {
   margin-top: 15px;
 }
 .jumbotron {
   padding: 20px;
-  /* text-align: center; */
+}
+
+#del{
+  background-color:transparent;
+  color:$danger;
 }
 
 tbody {
@@ -83,6 +92,9 @@ export default {
     }
   },
   methods: {
+    deleteItem: function (index){
+      this.rows.splice(index,1);
+    },
     addItem() {
       var object = {
         subject: this.infos.subject,

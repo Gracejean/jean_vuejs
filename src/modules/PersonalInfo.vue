@@ -8,7 +8,7 @@
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+            <b-card-img :src="require('assets/user.png')" class="rounded-0">{{profile}}</b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body title="Personal Info">
@@ -32,11 +32,9 @@
 <style>
 .jumbotron{
     padding: 15px;
-    /* text-align: center; */
 }
 #card {
   margin-top: 50px;
-  /* margin-left: 380px; */
 }
 </style>
 <script>
@@ -50,12 +48,13 @@ export default {
     return {
       firstname: sessionStorage.getItem("Firstname"),
       email: sessionStorage.getItem("Email"),
-      password: sessionStorage.getItem("Password")
+      password: sessionStorage.getItem("Password"),
+      profile: sessionStorage.getItem("Profile")
     };
   },
   methods:{
     update: function(){
-      AUTH.update(this.firstname,this.email, this.password)
+      AUTH.update(this.firstname,this.email, this.password,this.profile)
       let user = AUTH.login(this.email, this.password);
 
       AUTH.setUser(user);

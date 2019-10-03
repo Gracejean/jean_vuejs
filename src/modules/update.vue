@@ -7,6 +7,13 @@
           <div class="card">
             <div class="card-header">UPDATE INFO</div>
             <div class="card-body">
+              <b-col md="6">
+            <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+            <div class="pic">
+              <label>Change profile</label>
+              <input v-model="proc" placeholder="enter image url"/>
+            </div>
+          </b-col>
                 <div class="form-group">
                 <label for="username" class="bmd-label-floating">Username</label>
                 <input
@@ -46,6 +53,7 @@
 </template>
 
 <script>
+import ROUTER from "router"
 
 import AUTH from 'services/auth'
 export default {
@@ -54,7 +62,8 @@ export default {
     return {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      profile:''
     };
   },
   methods: {
@@ -63,7 +72,15 @@ export default {
       sessionStorage.setItem("Firstname", this.username),
       sessionStorage.setItem("Email", this.email),
       sessionStorage.setItem("Password", this.password),
-      AUTH.save(this.username,this.email, this.password)
+      sessionStorage.setItem(" Change profile", this.profile),
+      AUTH.save(this.username,this.email, this.password, this.profile)
+      let user = AUTH.login(this.email, this.password);
+
+      AUTH.setUser(user);
+              if(user != null){
+                ROUTER.push('/Dashboard');
+              }
+
     
 
   },
@@ -114,6 +131,13 @@ input {
   border: 2px solid black;
   margin-top: 5px;
   padding: 12px 30px;
+}
+
+.pic{
+  position:absolute;
+  left:100%;
+  top: 20px;
+  
 }
 
 </style>
