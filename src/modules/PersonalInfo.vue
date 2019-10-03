@@ -8,7 +8,7 @@
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img :src="require('assets/user.png')" class="rounded-0">{{profile}}</b-card-img>
+            <b-card-img id="pic" class="rounded-0"></b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body title="Personal Info">
@@ -49,7 +49,7 @@ export default {
       firstname: sessionStorage.getItem("Firstname"),
       email: sessionStorage.getItem("Email"),
       password: sessionStorage.getItem("Password"),
-      profile: sessionStorage.getItem("Profile")
+      profile: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugznlxaKe8PmdqZIN3dtOI2Iktd_cXtfwo6YpDGnImSk7qCDJ7w"
     };
   },
   methods:{

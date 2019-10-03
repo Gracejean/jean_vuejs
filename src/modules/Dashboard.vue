@@ -7,7 +7,7 @@
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <center>
-          <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+          <b-card-img  id ="image" :src="require('assets/user.png')" class="rounded-0"></b-card-img>
           <b-row no-gutters>
             <b-card-body>
               <h1>HI {{firstname}}</h1>
@@ -23,11 +23,11 @@
 
 <style scoped>
 #card {
-  margin-top: 30px;
+  margin-top: 0;
+  height: 20px;
 }
 .jumbotron{
     padding:15px;
-    /* text-align: center; */
 }
 #image {
   width: 250px;

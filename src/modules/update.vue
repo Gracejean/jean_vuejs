@@ -8,10 +8,10 @@
             <div class="card-header">UPDATE INFO</div>
             <div class="card-body">
               <b-col md="6">
-            <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+            <b-card-img id="pic1" class="rounded-0"></b-card-img>
             <div class="pic">
               <label>Change profile</label>
-              <input v-model="proc" placeholder="enter image url"/>
+              <input v-model="profile" placeholder="enter image url"/>
             </div>
           </b-col>
                 <div class="form-group">
@@ -63,7 +63,7 @@ export default {
       username: "",
       email: "",
       password: "",
-      profile:''
+      profile:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugznlxaKe8PmdqZIN3dtOI2Iktd_cXtfwo6YpDGnImSk7qCDJ7w"
     };
   },
   methods: {

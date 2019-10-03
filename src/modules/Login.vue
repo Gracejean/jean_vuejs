@@ -63,9 +63,10 @@ export default {
             let user = AUTH.login(this.email, this.password);
             if(this.email == ""|| this.password == ""){
               alert("Please provide inputs!");
-            }else{
-              alert("Please register first!")
-              ROUTER.push('/Register')
+            }
+            // }else{
+            //   alert("Please register first!")
+            //   ROUTER.push('/Register')
               AUTH.setUser(user);
               if(user != null){
                 ROUTER.push('/Dashboard');
@@ -95,7 +96,7 @@ export default {
 
     // }
 
-}
+// }
 };
 </script>
 
