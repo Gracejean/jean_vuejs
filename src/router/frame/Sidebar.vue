@@ -1,7 +1,13 @@
 <template>
   <sidebar-menu :menu="menu" />
 </template>
- 
+  <style scoped>
+  .v-sidebar-menu{
+    height: 95%;
+    margin-top:55px;
+    background-color:rgb(39, 81, 122);
+    }
+ </style>
 <script>
 export default {
   data() {
@@ -27,8 +33,9 @@ export default {
           title: "Personal Info",
           icon: "fa fa-chart-area",
         },
+    
         {
-          href: "/Login",
+          href: "/Logout",
           title: "Logout",
           icon: "fa fa-chart-area",
         }

@@ -24,14 +24,14 @@
 <style scoped>
 #card {
   margin-top: 0;
-  height: 20px;
+  height: 20%;
 }
 .jumbotron{
-    padding:15px;
+    padding:0.5%;
 }
 #image {
-  width: 250px;
-  height: 220px;
+  width: 25%;
+  height: 25%;
 }
 </style>
 

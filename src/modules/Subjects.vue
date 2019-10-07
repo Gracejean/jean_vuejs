@@ -1,115 +1,131 @@
 <template>
-<center>
-  <div>
-    <div class="jumbotron">
-      <h1>Subjects</h1>
+  <center>
+    <div>
+      <div class="jumbotron">
+        <h1>Subjects</h1>
+      </div>
+      <div class="scroll">
+        <center>
+          
+        <b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
+          <b-form-group label-size="lg" label-for="input-lg">
+            <label id="Subject">Subject:</label>
+            <b-form-input v-model="infos.subject" id="subject" size="lg"></b-form-input>
+            <label id="teacher">Teacher:</label>
+            <br />
+            <b-form-input v-model="infos.teacher" id="teacher" size="lg"></b-form-input>
+            <br />
+            <label id="time">Schedule:</label>
+            <b-form-input v-model="infos.schedule" id="time" size="lg"></b-form-input>
+            <br />
+            <b-button variant="primary" @click="addItem">Add Subject</b-button><br><br>
+            <label id="time">Delete:</label>
+            <b-form-input v-model="infos.del" id="time" size="lg"></b-form-input>
+            <br />
+            <b-button id="del" @click="deleteItem">Delete Subject</b-button>
+            <br />
+            <br />
+            <mdb-scrollbar height="200px">
+              <mdb-tbl bordered>
+                <mdb-tbl-head color="light">
+                  <tr>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Teacher</th>
+                    <th scope="col">Schedule</th>
+
+                  </tr>
+                </mdb-tbl-head>
+                <mdb-tbl-body v-for="(item, index) in this.rows" :key="index">
+                  <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td>{{ item.subject }}</td>
+                    <td>{{ item.teacher }}</td>
+                    <td>{{ item.schedule }}</td>
+                  </tr>
+                </mdb-tbl-body>
+              </mdb-tbl>
+            </mdb-scrollbar>
+          </b-form-group>
+        </b-card>
+      </center>
+
+      </div>
+      
+      
     </div>
-    <center>
-      <b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
-        <b-form-group label-size="lg" label-for="input-lg">
-          <label id="Subject">Subject:</label>
-          <b-form-input v-model="infos.subject" id="subject" size="lg"></b-form-input>
-          <label id="teacher">Teacher:</label>
-          <br>
-          <b-form-input v-model="infos.teacher" id="teacher" size="lg"></b-form-input>
-          <br>
-          <label id="time">Time:</label>
-          <b-form-input v-model="infos.time" id="time" size="lg"></b-form-input>
-          <label id="time">Day:</label>
-          <b-form-input v-model="infos.day" id="day" size="lg"></b-form-input>
-          <label id="room">Room:</label>
-          <b-form-input v-model="infos.room" id="room" size="lg"></b-form-input>
-          <br>
-          <b-button variant="primary" @click="addItem"
-           >Add Subject</b-button>
-          <b-button id="del" @click="deleteItem"
-           >Delete Subject</b-button>
- 
-        </b-form-group>
-      </b-card>
-    </center>
-      <b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
-        <table class="table">
-          <thead>
-            <tr >
-              <th scope="col">SUBJECT</th>
-              <th scope="col">TEACHER</th>
-              <th scope="col">TIME</th>
-              <th scope="col">DAY</th>
-              <th scope="col">ROOM</th>
-            </tr>
-          </thead>
-         <tbody v-for="(item, index) in this.rows" :key="index">
-            <tr >
-              <td>{{ item.subject }}</td>
-              <td>{{ item.teacher }}</td>
-              <td>{{ item.time }}</td>
-              <td>{{ item.day }}</td>
-              <td>{{ item.room }}</td>
-
-            </tr>
-          </tbody>
-        </table>
-      </b-card>
-    <!-- </center> -->
-  </div>
-</center>
+  </center>
 </template>
-
+    
 
 <style scoped lang="scss">
 @import "assets/colors.scss";
 
-#card {
-  margin-top: 15px;
+.b-card {
+  margin-top: 1%;
 }
 .jumbotron {
-  padding: 20px;
+  padding: 0.5%;
 }
 
-#del{
-  background-color:transparent;
-  color:$danger;
+#del {
+  background-color: transparent;
+  color: $danger;
 }
 
-tbody {
-  margin-top:20px;
+.scroll{
+  overflow: scroll;
+  height: 500px;
+  margin-top: 20px;
+}
+
+mdb-scrollbar {
+  margin-top: 20%;
+  padding-top: 5%;
 }
 </style>
 
 <script>
+import { mdbTbl, mdbTblHead, mdbTblBody, mdbScrollbar } from "mdbvue";
 export default {
-   data() {
+  name: "TableScrollPage",
+  components: {
+    mdbTbl,
+    mdbTblHead,
+    mdbTblBody,
+    mdbScrollbar
+  },
+
+  data() {
     return {
-        rows:[],
+      rows: [],
       infos: {
         subject: "",
         teacher: "",
-        time: "",
-        day: "",
-        room: "",
+        schedule: ""
       }
-    }
+    };
   },
   methods: {
-    deleteItem: function (index){
-      this.rows.splice(index,1);
+    deleteItem() {
+      for (let i = 0; i < this.rows.length; i++) {
+        if (this.rows[i].subject === this.infos.del) {
+          if (this.rows.splice(this.rows.indexOf(this.rows[i]), 1));
+        }
+      }
+      this.infos.del = "";
     },
     addItem() {
       var object = {
         subject: this.infos.subject,
         teacher: this.infos.teacher,
-        time: this.infos.time,
-        day: this.infos.day,
-        room: this.infos.room
+        schedule: this.infos.schedule
       };
-      this.rows.push( object )
-      this.infos.subject = ""
-      this.infos.teacher = ""
-      this.infos.time = ""
-      this.infos.day= ""
-      this.infos.room = ""
-    }
+      this.rows.push(object);
+      this.infos.subject = "";
+      this.infos.teacher = "";
+      this.infos.schedule = "";
+          }
   }
 };
 </script>
+

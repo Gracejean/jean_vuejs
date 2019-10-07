@@ -3,15 +3,12 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="container">
-          <center>
-            <b-card-img id="image1" :src="require('assets/img.png')" class="rounded-0"></b-card-img>
-            </center>
-          <div class="card">
+            <div class="card">
             <div class="card-header">LOGIN</div>
             <div class="card-body">
               <div class="form-group">
                 <label for="email" class="bmd-label-floating">Email</label>
-                  <input type="text" class="form-control" id="email" v-model="email" placeholder="Enter email..."/>
+                  <input type="email" class="form-control" id="email" v-model="email" placeholder="Enter email..."/>
               </div>
               <div class="form-group">
                 <label for="pwd" class="bmd-label-floating">Password</label>
@@ -45,7 +42,7 @@
 }
 </style>
 <script>
-import ROUTER from "router"
+// import ROUTER from "router"
 
 import AUTH from 'services/auth'
 // import jquery from 'jquery'
@@ -60,17 +57,18 @@ export default {
   methods: {
         submit: function (e) {
             e.preventDefault();
-            let user = AUTH.login(this.email, this.password);
+            // let user = AUTH.login(this.email, this.password);
+            AUTH.login(this.email, this.password);
             if(this.email == ""|| this.password == ""){
               alert("Please provide inputs!");
             }
             // }else{
             //   alert("Please register first!")
             //   ROUTER.push('/Register')
-              AUTH.setUser(user);
-              if(user != null){
-                ROUTER.push('/Dashboard');
-              }
+              // AUTH.setUser(user);
+              // if(user != null){
+              //   ROUTER.push('/Dashboard');
+              // }
             }
         // },
         }
@@ -149,14 +147,7 @@ input {
   margin-top: 5px;
   padding: 12px 30px;
 }
-#image1 {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  top:13px;
-  left: 38%;
-  z-index: 1;
-}
+
 
 </style>
 

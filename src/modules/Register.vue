@@ -3,61 +3,28 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="container">
-          <center>
-            <b-card-img id="image1" :src="require('assets/img.png')" class="rounded-0"></b-card-img>
-            </center>
           <div class="card">
             <div class="card-header">REGISTER</div>
             <div class="card-body">
                 <div class="form-group">
                 <label for="fname" class="bmd-label-floating">Firstname</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fname"
-                  v-model = "content.firstname"
-                  placeholder="Enter your firstname.."
-                />
+                <input type="text" class="form-control" id="fname" v-model = "content.firstname" placeholder="Enter your firstname.." required/>
               </div>
               <div class="form-group">
                 <label for="lname" class="bmd-label-floating">Lastname</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lname"
-                  v-model = "content.lastname"
-                  placeholder="Enter your lastname.."
-                />
+                <input type="text" class="form-control" id="lname" v-model = "content.lastname" placeholder="Enter your lastname.." required/>
               </div>
               <div class="form-group">
                 <label for="email" class="bmd-label-floating">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  v-model= "content.email"
-                  placeholder="Enter your email.."
-                />
+                <input type="email" class="form-control" id="email"  v-model= "content.email" placeholder="Enter your email.." required/>
               </div>
               <div class="form-group">
                 <label for="pass" class="bmd-label-floating">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="pass"
-                  v-model = "content.password"
-                  placeholder="Enter your password.."
-                />
+                <input type="password" class="form-control" id="pass" v-model = "content.password" placeholder="Enter your password.." required/>
               </div>
-                            <div class="form-group">
+              <div class="form-group">
                 <label for="cpass" class="bmd-label-floating">Confirm Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="cpass"
-                  v-model = "content.cpassword"
-                  placeholder="Confirm you password.."
-                />
+                <input type="password" class="form-control" id="cpass" v-model = "content.cpassword" placeholder="Confirm you password.." required/>
               </div>
               <center>
                 <button type="button" class="btn btn-outline-success register-btn" id="btnRegister" @click = "submit">Register</button>
@@ -110,7 +77,13 @@ export default {
   margin-top: 50px;
   padding: 30px;
 }
+
+.container {
+  background-color: white;
+  padding: 10px;
+  margin-top:50px;
   
+}  
 
 .h3 {
   margin-left: 500px;
@@ -154,14 +127,6 @@ input {
   
 }
 
-#image1 {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  top:10px;
-  left: 190px;
-  z-index: 1;
-}
 
 </style>
 

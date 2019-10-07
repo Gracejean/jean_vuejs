@@ -19,6 +19,7 @@ export default {
         for (let i = 0; i < this.registeredUser.length; i++) {
             if (this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
                 ROUTER.push('/Dashboard')
+                this.setUser(username)
                 return this.registeredUser[i]
 
             }
@@ -35,7 +36,7 @@ export default {
     },
 
     save(){
-        this.user = null
+        this.user != null
         ROUTER.push('/PersonalInfo')
     }
 

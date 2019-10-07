@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Sidebar v-show = "$route.path === '/Dashboard' || $route.path === '/Subjects'|| $route.path === '/PersonalInfo' ? true: false">
+    <Sidebar v-show="$route.path === '/Dashboard' || $route.path === '/Subjects'|| $route.path === '/EditProfile' || $route.path === '/PersonalInfo' || $route.path ==='/update'? true: false "> 
   </Sidebar>
   
-  <!-- <Header v-show = "$route.path === '/Login' || $route.path === '/Register'|| $route.path === '/' ? true: false"></Header> -->
   <AppBody></AppBody>
   </div>
 </template>

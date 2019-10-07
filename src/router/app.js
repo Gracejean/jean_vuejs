@@ -41,10 +41,20 @@ export default {
     {
         path: '/update',
         name: 'updateInfo',
-        component: resolve => require(['modules/update.vue'],resolve),
+        component: resolve => require(['modules/update.vue'], resolve),
         meta: {
             tokenRequired: true
         }
-    
-        }]
+
+
+    },
+    {
+        path: '/Logout',
+        name: 'logout',
+        component: resolve => require(['modules/Logout.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
+
+    }]
 }
